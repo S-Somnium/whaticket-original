@@ -44,7 +44,7 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
       }
 
       const args: String = process.env.CHROME_ARGS || "";
-
+      console.log(process.env.CHROME_ARGS);
       const wbot: Session = new Client({
         session: sessionCfg,
         authStrategy: new LocalAuth({
@@ -54,7 +54,7 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
           executablePath: process.env.CHROME_BIN || undefined,
           // @ts-ignore
           browserWSEndpoint: process.env.CHROME_WS || undefined,
-          args: args.split(" ")
+          args: [...args.split(" "), "--no-sandbox"]
         }
       });
 
