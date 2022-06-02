@@ -24,7 +24,7 @@ const LoopQueuesService = async (  msg: WbotMessage | undefined, whatsappId: num
     if(queues[x].dataValues.id === selected){
           //@ts-ignore
 
-      SendMessage(msg,whatsappId,`Você acaba de ser redericionado para a fila ${queues[x].dataValues.name}, embreve iremos lhe atender, por favor aguarde! Obrigado.`)
+      SendMessage(msg,whatsappId,`Você acaba de ser redericionado para a fila ${queues[x].dataValues.name}, você será atendido assim que um dos nossos colaboradores estiver disponivel, por favor aguarde! Obrigado.`)
       return selected
     }
   }
