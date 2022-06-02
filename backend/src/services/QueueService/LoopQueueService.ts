@@ -13,7 +13,7 @@ const LoopQueuesService = async (  msg: WbotMessage | undefined, whatsappId: num
   let message = "Olá! Bem vindo a Imperio Tecnologia por favor escolha uma das seguintes opções.\n\n"
   for(let x in queues){
     //@ts-ignore
-    message += queues[x].dataValues.id + " - para fila do "+ queues[x].dataValues.name+"\n"
+    message += (x+1) + " - para fila do "+ queues[x].dataValues.name+"\n"
   }
   if(isNaN(selected)){
     await SendMessage(msg,whatsappId,message)
@@ -21,7 +21,7 @@ const LoopQueuesService = async (  msg: WbotMessage | undefined, whatsappId: num
   }
   for(let x in queues){
     //@ts-ignore
-    if(queues[x].dataValues.id === selected){
+    if((x+1) == selected){
           //@ts-ignore
 
       SendMessage(msg,whatsappId,`Você acaba de ser redericionado para a fila ${queues[x].dataValues.name}, você será atendido assim que um dos nossos colaboradores estiver disponivel, por favor aguarde! Obrigado.`)
