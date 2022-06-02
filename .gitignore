@@ -1,3 +1,6 @@
 .docker/data/
 ssl/
 .env
+frontend/node_modules
+backend/node_modules
+backend/.wwebjs_auth
