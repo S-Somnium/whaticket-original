@@ -14,18 +14,18 @@ const LoopQueuesService = async (  msg: WbotMessage | undefined, whatsappId: num
   for(let x in queues){
     let temp = parseInt(x)+1;   
      //@ts-ignore
-    message += x + " - "+ queues[x].dataValues.name+"\n"
+    message += temp + " - "+ queues[x].dataValues.name+"\n"
   }
   if(isNaN(selected)){
     await SendMessage(msg,whatsappId,message)
     return 0
   }
   for(let x in queues){
-    //@ts-ignore
-    if((x) == selected){
+    if(parseInt(x) == (selected-1)){
       //@ts-ignore
       SendMessage(msg,whatsappId,`Você acaba de ser redericionado para a fila ${queues[x].dataValues.name}, você será atendido assim que um dos nossos colaboradores estiver disponivel, por favor aguarde! Obrigado.`)
-      return selected
+      //@ts-ignore
+      return queues[x].dataValues.id
     }
   }
 
