@@ -47,7 +47,7 @@ const FindOrCreateTicketService = async (
       });
     }
   }
-
+/*
   if (!ticket && !groupContact) {
     ticket = await Ticket.findOne({
       where: {
@@ -68,7 +68,7 @@ const FindOrCreateTicketService = async (
       });
     }
   }
-  
+*/
   if (!ticket) {
     const selectedQueue = await LoopQueuesService(msg, whatsappId); // queue start at id 1 not 0. so he returns 0 if not selected.
     if (!selectedQueue) {
