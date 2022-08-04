@@ -150,7 +150,6 @@ const TicketListItem = ({ ticket }) => {
 	const handleSelectTicket = id => {
 		history.push(`/tickets/${id}`);
 	};
-
 	return (
 		<React.Fragment key={ticket.id}>
 			<ListItem
@@ -211,8 +210,8 @@ const TicketListItem = ({ ticket }) => {
 									)}
 								</Typography>
 							)}
-							{ticket.whatsappId && (
-								<div className={classes.userTag} title={i18n.t("ticketsList.connectionTitle")}>{ticket.whatsapp?.name}</div>
+							{ticket.whatsappId && ( //here
+								<div className={classes.userTag} title={i18n.t("ticketsList.connectionTitle")}>{ticket.queue?.name}</div>
 							)}
 						</span>
 					}

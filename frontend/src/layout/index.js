@@ -219,7 +219,9 @@ const LoggedInLayout = ({ children }) => {
           >
             WhaTicket
           </Typography>
-          {user.id && <NotificationsPopOver />}
+          {//user.id && <NotificationsPopOver /> 
+          // this is all the chats
+          }
 
           <div>
             <IconButton

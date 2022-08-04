@@ -42,7 +42,6 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
       if (whatsapp && whatsapp.session) {
         sessionCfg = JSON.parse(whatsapp.session);
       }
-	  
 	  const wbot: Session = new Client({
         session: sessionCfg,
         authStrategy: new LocalAuth({clientId: 'bd_'+whatsapp.id}),
@@ -127,6 +126,8 @@ export const initWbot = async (whatsapp: Whatsapp): Promise<Session> => {
         resolve(wbot);
       });
     } catch (err) {
+      // @ts-ignore
+
       logger.error(err);
     }
   });
@@ -149,6 +150,8 @@ export const removeWbot = (whatsappId: number): void => {
       sessions.splice(sessionIndex, 1);
     }
   } catch (err) {
+    // @ts-ignore
+
     logger.error(err);
   }
 };

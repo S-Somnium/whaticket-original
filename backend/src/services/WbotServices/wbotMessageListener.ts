@@ -166,6 +166,8 @@ const verifyQueue = async (
   const selectedOption = msg.body;
 
   const choosenQueue = queues[+selectedOption - 1];
+  console.log(choosenQueue)
+  console.log(msg.body)
 
   if (choosenQueue) {
     await UpdateTicketService({
@@ -275,20 +277,24 @@ const handleMessage = async (
       formatBody(whatsapp.farewellMessage, contact) === msg.body
     )
       return;
+    
 
     const ticket = await FindOrCreateTicketService(
       contact,
       wbot.id!,
       unreadMessages,
-      groupContact
+      groupContact,
+      msg
     );
+
+    if(!ticket)return // in case that the ticket isnt created
 
     if (msg.hasMedia) {
       await verifyMediaMessage(msg, ticket, contact);
     } else {
       await verifyMessage(msg, ticket, contact);
     }
-
+    
     if (
       !ticket.queue &&
       !chat.isGroup &&

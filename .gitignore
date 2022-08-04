@@ -2,3 +2,6 @@
 ssl/
 .env
 .wwebjs_auth
+frontend/node_modules
+backend/node_modules
+backend/.wwebjs_auth

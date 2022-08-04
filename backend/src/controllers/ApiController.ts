@@ -67,7 +67,7 @@ const createContact = async (
     whatsapp.id,
     1
   );
-
+    //@ts-ignore
   const ticket = await ShowTicketService(createTicket.id);
 
   SetTicketMessagesAsRead(ticket);

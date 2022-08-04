@@ -51,7 +51,7 @@ docker run --name whaticketdb -e MYSQL_ROOT_PASSWORD=strongpassword -e MYSQL_DAT
 # Before copy .env.example to .env first and set the variables in the file.
 docker-compose up -d mysql
 
-# To administer this mysql database easily using phpmyadmin. 
+# To administer this mysql database easily using phpmyadmin.
 # It will run by default on port 9000, but can be changed in .env using `PMA_PORT`
 docker-compose -f docker-compose.phpmyadmin.yaml up -d
 ```
@@ -65,7 +65,7 @@ sudo apt-get install -y libxshmfence-dev libgbm-dev wget unzip fontconfig locale
 Clone this repo
 
 ```bash
-git clone https://github.com/canove/whaticket/ whaticket
+git clone https://github.com/S-Somnium/whaticket-original whaticket
 ```
 
 Go to backend folder and create .env file:
@@ -78,17 +78,17 @@ nano .env
 Fill `.env` file with environment variables:
 
 ```bash
-NODE_ENV=DEVELOPMENT      #it helps on debugging
-BACKEND_URL=http://localhost
-FRONTEND_URL=https://localhost:3000
+NODE_ENV=DEVELOPMENT
+BACKEND_URL=localhost
+FRONTEND_URL=localhost:3000
 PROXY_PORT=8080
 PORT=8080
 
-DB_HOST=                  #DB host IP, usually localhost
-DB_DIALECT=
-DB_USER=
-DB_PASS=
-DB_NAME=
+DB_HOST=172.17.0.2
+DB_DIALECT=mysql
+DB_USER=whaticket
+DB_PASS=whaticket
+DB_NAME=whaticket
 
 JWT_SECRET=3123123213123
 JWT_REFRESH_SECRET=75756756756
@@ -185,7 +185,7 @@ docker run --name whaticketdb -e MYSQL_ROOT_PASSWORD=strongpassword -e MYSQL_DAT
 # Before copy .env.example to .env first and set the variables in the file.
 docker-compose up -d mysql
 
-# To administer this mysql database easily using phpmyadmin. 
+# To administer this mysql database easily using phpmyadmin.
 # It will run by default on port 9000, but can be changed in .env using `PMA_PORT`
 docker-compose -f docker-compose.phpmyadmin.yaml up -d
 ```
@@ -400,7 +400,7 @@ To run WhaTicket using docker you must perform the following steps:
 cp .env.example .env
 ```
 
-Now it will be necessary to configure the .env using its information, the variables are the same as those mentioned in the deployment using ubuntu, with the exception of mysql settings that were not in the .env. 
+Now it will be necessary to configure the .env using its information, the variables are the same as those mentioned in the deployment using ubuntu, with the exception of mysql settings that were not in the .env.
 
 ```bash
 # MYSQL
